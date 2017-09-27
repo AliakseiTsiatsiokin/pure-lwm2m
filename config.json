@@ -1,0 +1,23 @@
+{
+  "publisher": {
+    "name": "iot-poc-channel",
+    "role": "admin",
+    "roleSecret": "49dEd18a9D70aa3F91dCbaffdBe1Ddb6",
+    "endpoint": "wss://s8bkrc0n.api.satori.com",
+    "appkey": "1E253fdAa749AAee105C657fAF8657De"
+  },
+  "subscriber": {
+    "name": "iot-poc-channel",
+    "role": "user",
+    "roleSecret": "BEcE0eAF0aC8dC1C7e58E6703C1BC806",
+    "endpoint": "wss://s8bkrc0n.api.satori.com",
+    "appkey": "1E253fdAa749AAee105C657fAF8657De"
+  },
+  "pathToNames": {
+    "3": "deviceData",
+    "3303": "temperature",
+    "3304": "humidity"
+  }
+}
+
+

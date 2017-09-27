@@ -1,0 +1,20 @@
+{
+  "name": "lwm2mapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "lwm2m": "^0.5.0",
+    "morgan": "~1.8.1",
+    "node-promisify": "^1.2.0",
+    "pug": "~2.0.0-beta11",
+    "satori-rtm-sdk": "^1.1.1",
+    "serve-favicon": "~2.4.2"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "sensorValue": {
+    "id": 5700,
+    "type": "Number",
+    "required": true
+  },
+  "miMV":{
+    "id": 5601,
+    "type": "Number"
+  },
+  "maMV":{
+    "id": 5602,
+    "type": "Number"
+  },
+  "miRV":{
+    "id": 5603,
+    "type": "Number"
+  },
+  "maRV":{
+    "id": 5604,
+    "type": "Number"
+  },
+  "units": {
+    "id": 5701,
+    "type": "String"
+  },
+  "refresh": {
+    "id": 5605,
+    "type": "String"
+  }
+}
