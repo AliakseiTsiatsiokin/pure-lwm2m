@@ -3,10 +3,8 @@
 const RTM = require("satori-rtm-sdk");
 const config = require('./config.json');
 const publisher = config.publisher;
-const subscriber = config.subscriber;
 
 const pubRoleSecretProvider = RTM.roleSecretAuthProvider(publisher.role, publisher.roleSecret);
-//const subRoleSecretProvider = RTM.roleSecretAuthProvider(subscriber.role, subscriber.roleSecret);
 
 /* Publisher setup */
 const rtmPublisher = new RTM(publisher.endpoint, publisher.appkey, {
@@ -33,7 +31,6 @@ const schemaSensor = Schema(require('./sensorSchema.json'));
 /* data transfering functions */
 function publishData(){
   rtmPublisher.publish(publisher.name, message, function(pdu) {
-    console.log(pdu);
     if (pdu.action.endsWith("/ok")) {
       console.log("\n\n\n\n\nDevice is published: " + JSON.stringify(message, null ,4));
     } else {
@@ -55,21 +52,28 @@ function readData(params, path, readOptions, finish){
     });
 }
 
-server.on('register', function(params, accept) {
+function commonRequestHandler(params){
   setImmediate(function() {
     readData(params, '3/0',{
       format: content.json
     });
     readData(params, '3303/0',{
       schema: schemaSensor,
-        format: content.json
+      format: content.json
     });
     readData(params, '3304/0',{
       schema: schemaSensor,
       format: content.json
     },publishData);
   });
+}
+
+server.on('register', function(params, accept) {
+  commonRequestHandler(params);
   accept();
+});
+server.on('update', function(params) {
+  commonRequestHandler(params);
 });
 
 server.listen(5683);
